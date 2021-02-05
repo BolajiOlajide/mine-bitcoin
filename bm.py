@@ -2,7 +2,7 @@ from hashlib import sha256
 import time
 
 
-MAX_NONCE = 100
+MAX_NONCE = 1000000000
 
 def SHA256(text):
     return sha256(text.encode('ascii')).hexdigest()
@@ -29,10 +29,10 @@ if __name__ == '__main__':
 '''
 
     prev_hash = '000000000000000000041f844be9e58bde6069a52d80eba5821e3e02d5742488'
-    difficulty = 20
+    difficulty = 19
     start = time.time()
     print('start mining')
-    new_hash = mine(5, transactions, prev_hash, difficulty)
+    new_hash = mine(668666, transactions, prev_hash, difficulty)
     total_time = str((time.time() - start))
     print(f'End mining. Mining took: {total_time} seconds.')
-    print(SHA256('ABC'))
+    print(f'Found bitcoin at {new_hash}')
